@@ -13,6 +13,9 @@ from tkinter import simpledialog, messagebox
 
 # Where your notes live on disk (change if you like).
 BASE_DIR = os.path.expanduser("~/RaccoonNotes")
+APP_DIR = os.path.dirname(os.path.abspath(__file__))
+
+icon_path = os.path.join(APP_DIR, "raccoon_icon.png")
 
 # Toggle to True to see detailed prints about what the app is doing.
 DEBUG = False
@@ -205,6 +208,9 @@ class RaccoonNotesTXT_Grid:
         self.root.title("Raccoon Notes")
         self.root.geometry("800x600")
 
+        icon_path = os.path.join(APP_DIR, "raccoon_icon.png")
+        self.root.iconphoto(True, tk.PhotoImage(file=icon_path))
+
         # give weight to columns to configure button placements.
         for i in range(50):  # or however many rows you expect
             self.root.grid_rowconfigure(i, weight=1)
@@ -212,7 +218,7 @@ class RaccoonNotesTXT_Grid:
         for i in range(10):
             self.root.grid_columnconfigure(i, weight=1)
 
-        img = Image.open("forest_raccoons_adventure_bg.png").resize((800, 600))
+        img = Image.open(os.path.join(APP_DIR, "forest_raccoons_adventure_bg.png")).resize((800, 600))
         self.bg_image = ImageTk.PhotoImage(img)
         self.bg_label = tk.Label(self.root, image=self.bg_image)
         self.bg_label.place(x=0, y=0, relwidth=1, relheight=1)
@@ -224,6 +230,7 @@ class RaccoonNotesTXT_Grid:
 
         ensure_base_dir()
         self.view_home()
+
 
     def clear_window(self):
         for w in self.root.winfo_children():
