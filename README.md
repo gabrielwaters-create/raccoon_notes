@@ -24,6 +24,16 @@ It helps you organize notes into **stashes** (folders) and **notes** (plain `.tx
 
 ---
 
+## 🛠️ Tech Stack
+
+- **Python 3.12** – main programming language  
+- **Tkinter** – GUI for the desktop app  
+- **Pillow (PIL)** – image handling for backgrounds and icons  
+- **OS modules (`os`, `shutil`)** – file and folder management  
+- **Ubuntu Desktop (.desktop files)** – system integration and launcher support  
+- **Plain Text Storage** – notes saved as `.txt` files inside `~/RaccoonNotes`  
+
+
 ## 📸  Screenshots
 
 ### 📸 Home Screen
@@ -35,6 +45,55 @@ It helps you organize notes into **stashes** (folders) and **notes** (plain `.tx
 ![](NotesExamplePicture.png)
 
 ---
+
+## 🎨 App Icon
+
+Raccoon Notes comes with its own custom app icon (`raccoon_icon.png`).  
+You can use this icon when creating a desktop shortcut or launcher for the app.
+
+<details>
+<summary><strong>Advanced: Add to Applications (Linux/Ubuntu)</strong></summary>
+
+1. Make sure you have the app icon file (e.g., `raccoon_icon.png`) in your project folder.
+2. Install Tkinter (GUI support) and Pillow (image support) system-wide:
+   ```
+   
+    sudo apt update
+    sudo apt install python3.12-tk python3-pil python3-pil.imagetk -y
+
+   
+   ```
+3. Run the app manually (First Test)
+   ```
+    /usr/bin/python3.12 /path/to/raccoon_notes_app.py
+
+   ```
+
+4. Create a `.desktop` file in your applications directory:  
+   ```bash
+   nano ~/.local/share/applications/raccoon-notes.desktop
+   ```
+4. Add the following content (update paths if needed):  
+   ```
+   [Desktop Entry]
+   Name=Raccoon Notes
+   Comment=Lightweight raccoon-themed notes app
+   Exec=/usr/bin/python3.12 /path/to/raccoon_notes_app.py
+   Path=/path/to/raccoon_notes
+   Icon=/path/to/raccoon_icon.png
+   Terminal=false
+   Type=Application
+   Categories=Utility;
+   ```
+5. Save and close.  
+6. Run:  
+   ```bash
+   chmod +x ~/.local/share/applications/raccoon-notes.desktop
+   ```
+7. Now you can find **Raccoon Notes** in your app menu with the custom icon.
+
+</details>
+
 
 ## 🛠️ Installation & Setup
 
@@ -60,13 +119,14 @@ By default, your notes will be stored in `~/RaccoonNotes`.
 
 ## 🔮 Future Roadmap
 
-- Syntax highlighting for code snippets.  
+- Scroll bar or pages for the home, stash, and notes menus to manage a large number of notes or stashes. 
+- Edit button that displays Delete buttons instead of always being visible.
+- Syntax highlighting for code snippets.
 - Auto-detection of programming languages (e.g., Python, Java).  
 - Simple text editor mode for coding.  
 - Additional themes and dark mode.  
 - Search functionality for notes.  
-- Export/import stashes.  
-
+- Export/import stashes.
 ---
 
 ## 📜 License
