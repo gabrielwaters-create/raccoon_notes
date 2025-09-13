@@ -1,0 +1,27 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+
+# Logs & misc
+*.log
+*.tmp
+
+# === PyCharm ===
+.idea/
+
+# === OS files ===
+.DS_Store
+Thumbs.db
